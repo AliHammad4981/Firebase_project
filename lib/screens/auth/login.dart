@@ -43,7 +43,7 @@ class _loginState extends State<login> {
                 Uihelper.custometextfield(_Password, "Password", Icons.password, true),
               ],
             ),
-            Uihelper.customButton(Login, false, 'Log in'),
+            Uihelper.customButton((Login), false, 'Log in'),
             TextButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup()));
 
@@ -54,11 +54,6 @@ class _loginState extends State<login> {
     );
   }
   Login() async{
-   final _user = await _auth.LoginUserWithEmailAndPassword(_Email.text, _Password.text);
-   if(_user!=null)
-     {
-       print("Log In Successfull");
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
-     }
+   await _auth.LoginUserWithEmailAndPassword(_Email.text, _Password.text);
   }
 }

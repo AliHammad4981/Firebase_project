@@ -49,7 +49,7 @@ class _SignupState extends State<Signup> {
             ),
             Uihelper.customButton(_CreateAccount, false, 'Create Account'),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> login()));
+              Navigator.pop(context);
             }, child: Text("Log In"))
           ],
         ),
@@ -57,10 +57,7 @@ class _SignupState extends State<Signup> {
     );
   }
   _CreateAccount() async{
-    final user = _auth.CreateUserWithEmailAndPassword(_Email.text, _Password.text);
-    if(user!=null)
-      {
-        Navigator.pop(context);
-      }
+    _auth.CreateUserWithEmailAndPassword(_Email.text, _Password.text);
+    Navigator.pop(context);
   }
 }

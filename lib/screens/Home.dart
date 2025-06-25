@@ -1,5 +1,4 @@
 import 'package:firebase_project/Services/auth_services.dart';
-import 'package:firebase_project/screens/auth/login.dart';
 import 'package:firebase_project/utils/Uihelper.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +29,6 @@ class _HomeState extends State<Home> {
               ),
               Uihelper.customButton((){
                 _auth.LogOut();
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
               }, false, 'log Out')
             ],
           ),
